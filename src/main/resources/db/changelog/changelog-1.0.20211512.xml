@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="20211612-AG1" author="Alexander Gorshov">
+        <createTable tableName="piece" remarks="Piece table">
+            <column name="id" type="bigint" autoIncrement="true" remarks="Unique identifier of piece">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_piece_id"/>
+            </column>
+            <column name="create_at" type="timestamp" remarks="Date time of creation piece">
+                <constraints nullable="false"/>
+            </column>
+            <column name="publish_at" type="timestamp" remarks="Date time of publish piece"/>
+            <column name="text" type="text" remarks="Content of piece"/>
+            <column name="publish_status" type="varchar(50)" remarks="Status of piece">
+                <constraints nullable="false"/>
+            </column>
+            <column name="footnote" type="varchar(1000)" remarks="Footnote of piece"/>
+            <column name="message_to_readers" type="varchar(1000)" remarks="Message to readers"/>
+            <column name="word_counter" type="int" defaultValue="0" remarks="Word counter">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="bigint" remarks="Version number of piece">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

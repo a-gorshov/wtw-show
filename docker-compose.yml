@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./scripts/db:/docker-entrypoint-initdb.d/
+      - wtw_db_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: writetheword
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: writetheword
+volumes:
+  wtw_db_postgres_data:

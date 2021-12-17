@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: pieces
+  datasource:
+    url: jdbc:postgresql://localhost:5432/writetheword?currentSchema=general
+    username: root
+    password: writetheword
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    database: postgresql
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    deserialization:
+      fail-on-unknown-properties: false
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-master.xml
+
+logging:
+  level:
+    org:
+      springframework:
+        web: debug
